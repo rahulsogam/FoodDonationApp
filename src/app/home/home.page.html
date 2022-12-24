@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item>
+      <ion-label>
+        Food Donate
+        <p style="font-weight:400; color: #433465">{{today | date:'fullDate'}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let food of donationDetails ; let i=index">
+    <ion-card-header >
+      <ion-item>
+        <ion-icon  name="ellipse" slot="start" *ngIf="food.foodType ==='Vegan'" color="success"></ion-icon>
+        <ion-icon name="ellipse" slot="start" *ngIf="food.foodType ==='Meat'" color="danger"></ion-icon>
+         {{food.foodType}}
+      </ion-item>
+      <ion-item>
+        <ion-label>Donor Name: {{food.name}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Contact Details : {{food.no}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Food Quantity : {{food.quantity}}</ion-label>
+      </ion-item>
+      <ion-icon name="trash" size="large" class="bin" (click)="delete(i)"></ion-icon>
+
+    </ion-card-header>
+  </ion-card>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success">
+      <ion-icon name="add" (click)="addDetails()" ></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+</ion-content>

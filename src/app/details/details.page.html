@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Add Details </ion-title>
+    <ion-icon name="close" slot="end" size="large" class="icon-padding" (click)="closeModal()"> </ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+    <ion-card-header>
+      <ion-card-title>Food Item :</ion-card-title>
+    </ion-card-header>
+    <ion-card-content >
+      <ion-select [(ngModel)]="foodType" placeholder="select option from doropdown">
+        <ion-select-option value="Vegan">vegan</ion-select-option>
+        <ion-select-option value="Meat">meat</ion-select-option>
+      </ion-select>
+    </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Food Quantity</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+      <ion-item>
+        <ion-label  position="floating">No of person can have food.</ion-label>
+        <ion-input [(ngModel)]="totalMeal" type="tel" placeholder="Total Meal"></ion-input>
+      </ion-item>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Details Of Donor</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Full Name</ion-label>
+        <ion-input [(ngModel)]="fullName" placeholder="Enter Full Name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Phone No</ion-label>
+        <ion-input [(ngModel)]="Phone" type="tel" placeholder="Enter Contact No"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button position="floating" (click)="choosePhoto()" >Upload Food Image</ion-button>
+        <div>
+          <img src="{{photo}}" >
+       </div>
+      </ion-item>
+  </ion-card-content>
+</ion-card>
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Pickup-Address</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Address 1</ion-label>
+        <ion-input readonly (ionFocus)="locate()" type="text" [(ngModel)]="Location" placeholder="Enter Address"></ion-input>
+      </ion-item>
+      
+  </ion-card-content>
+</ion-card>
+<ion-button size="full" color="success" (click)="vibrate()">Donate</ion-button>
+</ion-content>
